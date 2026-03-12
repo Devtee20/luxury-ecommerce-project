@@ -1,98 +1,43 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
-  body {
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  background-color: #f5f3ee;
-  color: #111;
-}
-
-/* MAIN CONTAINER */
-#products-container {
-  max-width: 1400px;
-  margin: 100px auto;
-  padding: 0 60px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 80px 60px;
-}
-
-.image-wrapper{
-    /* border: 2px solid red; */
-    background: #f0f2f5;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* PRODUCT CARD */
-.product-card {
-  cursor: pointer;
-  transition: 0.4s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-10px);
-}
-
-/* IMAGE AREA */
-.image-wrapper {
-  background: #fff;
-  padding: 30px;
-  margin-bottom: 25px;
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: 280px;
-  object-fit: contain;
-}
-
-/* INFO SECTION */
-.product-info h3 {
-  font-size: 17px;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.brand {
-  font-size: 13px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #777;
-  margin-bottom: 5px;
-}
-
-.category {
-  font-size: 12px;
-  color: #aaa;
-  margin-bottom: 15px;
-}
-
-.description {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-.price {
-  font-size: 16px;
-  font-weight: 600;
-}
- 
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INDEX</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./landingpage.css">
 </head>
-<body>
-    <h1>Our Products</h1>
-    <div id="products-container"></div>
 
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html" class="logo">LUXORA</a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#new-arrivals">New Arrivals</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+  
+  <!-- another section starts here  -->
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Elevate your style</h2>
+      <p>Discover luxury pieces curated for timeless elegance.</p>
+      <a href="shop.html" class="hero-btn">Shop Now</a>
+    </div>
+  </section>
 </body>
-<script type="module" src="./js/products.js"></script>
-</html> 
+
+</html>

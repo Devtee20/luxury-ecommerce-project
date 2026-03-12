@@ -1,0 +1,105 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+text-decoration: none;
+list-style-type: none;
+font-family: "Playfair Display", serif;
+}
+
+
+header{
+  
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+}
+.navbar{
+ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     padding: 20px 60px;
+}
+
+.logo{
+font-size: 30px;
+font-weight: 600;
+color: #c6a96b;
+letter-spacing: 8px;
+}
+
+
+.nav-links a{
+    /* border: 2px solid red; */
+    text-align: center;
+    color: #111111;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition: 0.3s;
+
+}
+
+.nav-links{
+    display: flex;
+    gap: 2em;
+}
+
+.nav-links a:hover{
+    color: #c6a96b;
+}
+
+ 
+
+/* hero section starts here */
+
+
+.hero{
+background-image: url("./images/download\ \(12\).jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+padding: 120px 80px;
+
+display: flex;
+align-items: center;
+
+}
+
+.hero-text{
+max-width: 500px;
+}
+
+.hero-text h2{
+font-size: 52px;
+color: #111111;
+margin-bottom: 20px;
+}
+
+
+.hero-text p{
+font-size: 18px;
+color: #6B6B6B;
+line-height: 1.6;
+margin-bottom: 30px;
+}
+
+.hero-btn{
+display: inline-block;
+
+padding: 14px 34px;
+
+background: #C6A96B;
+color: white;
+
+text-decoration: none;
+font-size: 14px;
+letter-spacing: 1px;
+
+transition: 0.3s;
+}
+
+
+.hero-btn:hover{
+background: #b89b5e;
+}
