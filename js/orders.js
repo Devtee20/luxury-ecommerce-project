@@ -1,42 +1,130 @@
 import { db, auth } from "./firebase.js";
 
 import {
-collection,
-query,
-where,
-getDocs
+  collection,
+  query,
+  where,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
 
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
 
 const ordersContainer = document.getElementById("orders-container");
 
+onAuthStateChanged(auth, async (user) => {
 
-async function getOrders(){
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
 
-const q = query(
-collection(db,"orders"),
-where("userId","==",auth.currentUser.uid)
-);
+  const q = query(
+    collection(db, "orders"),
+    where("userId", "==", user.uid)
+  );
 
-const querySnapshot = await getDocs(q);
+  const querySnapshot = await getDocs(q);
 
-ordersContainer.innerHTML = "";
+  ordersContainer.innerHTML = "";
 
-querySnapshot.forEach(doc=>{
+  querySnapshot.forEach((doc) => {
 
-const order = doc.data();
+    const order = doc.data();
 
-const orderDiv = document.createElement("div");
+    const div = document.createElement("div");
 
-orderDiv.innerHTML = `
-<h3>Total: ₦${order.total}</h3>
-<p>Items: ${order.products.length}</p>
-`;
+    div.innerHTML = `
+      <h3>Total: ₦${order.total}</h3>
+      <p>Items: ${order.products.length}</p>
+      <hr>
+    `;
 
-ordersContainer.appendChild(orderDiv);
+    ordersContainer.appendChild(div);
+
+  });
 
 });
 
-}
 
-getOrders();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { db, auth } from "./firebase.js";
+
+// import {
+// collection,
+// query,
+// where,
+// getDocs
+// } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+
+// const ordersContainer = document.getElementById("orders-container");
+
+
+// async function getOrders(){
+
+// const q = query(
+// collection(db,"orders"),
+// where("userId","==",auth.currentUser.uid)
+// );
+
+// const querySnapshot = await getDocs(q);
+
+// ordersContainer.innerHTML = "";
+
+// querySnapshot.forEach(doc=>{
+
+// const order = doc.data();
+
+// const orderDiv = document.createElement("div");
+
+// orderDiv.innerHTML = `
+// <h3>Total: ₦${order.total}</h3>
+// <p>Items: ${order.products.length}</p>
+// `;
+
+// ordersContainer.appendChild(orderDiv);
+
+// });
+
+// }
+
+// getOrders();

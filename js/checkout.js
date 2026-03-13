@@ -1,10 +1,14 @@
-import { db } from "./firebase.js";
+import { db, auth } from "./firebase.js";
 
 import {
-collection,
-addDoc,
-serverTimestamp
+  collection,
+  addDoc,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
 
 
 const orderSummary = document.getElementById("order-summary");
@@ -14,65 +18,203 @@ const placeOrderBtn = document.getElementById("place-order");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
-function displayCheckout(){
+/* ===============================
+DISPLAY CHECKOUT ITEMS
+=============================== */
 
-let total = 0;
+function displayCheckout() {
 
-orderSummary.innerHTML = "";
+  let total = 0;
 
-cart.forEach(product => {
+  orderSummary.innerHTML = "";
 
-total += product.price * product.quantity;
+  cart.forEach(product => {
 
-const item = document.createElement("div");
+    total += product.price * product.quantity;
 
-item.innerHTML = `
-<img src="${product.image}" width="200">
-<h3>${product.name}</h3>
-<p>₦${product.price} x ${product.quantity}</p>
-`;
+    const item = document.createElement("div");
 
-orderSummary.appendChild(item);
+    item.innerHTML = `
+      
+      <h3>${product.name}</h3>
+      <p>₦${product.price} x ${product.quantity}</p>
+    `;
 
-});
+    orderSummary.appendChild(item);
 
-checkoutTotal.innerText = total;
+  });
+
+  checkoutTotal.innerText = total;
 
 }
 
 displayCheckout();
 
 
-placeOrderBtn.addEventListener("click", async ()=>{
+/* ===============================
+PLACE ORDER
+=============================== */
 
-let total = 0;
+placeOrderBtn.addEventListener("click", () => {
 
-cart.forEach(product=>{
-total += product.price * product.quantity;
+  let total = 0;
+
+  cart.forEach(product => {
+    total += product.price * product.quantity;
+  });
+
+  onAuthStateChanged(auth, async (user) => {
+
+    if (!user) {
+      alert("Please login before placing an order");
+      window.location.href = "login.html";
+      return;
+    }
+
+    try {
+
+      await addDoc(collection(db, "orders"), {
+
+        products: cart,
+        total: total,
+        userId: user.uid,
+        timestamp: serverTimestamp()
+
+      });
+
+      alert("Order placed successfully");
+
+      localStorage.removeItem("cart");
+
+      window.location.href = "index.html";
+
+    } catch (error) {
+
+      console.error(error);
+      alert("Something went wrong");
+
+    }
+
+  });
+
 });
 
-try{
 
-await addDoc(collection(db,"orders"),{
 
-// userId: auth.currentUser.uid,
-products: cart,
-total: total,
-timestamp: serverTimestamp()
 
-});
 
-alert("Order placed successfully");
 
-localStorage.removeItem("cart");
 
-window.location.href="index.html";
 
-}catch(error){
 
-console.error(error);
-alert("Something went wrong");
 
-}
 
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { db, auth } from "./firebase.js";
+
+// import {
+//     collection,
+//     addDoc,
+//     serverTimestamp
+// } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+
+// const orderSummary = document.getElementById("order-summary");
+// const checkoutTotal = document.getElementById("checkout-total");
+// const placeOrderBtn = document.getElementById("place-order");
+
+// let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+
+// function displayCheckout() {
+
+//     let total = 0;
+
+//     orderSummary.innerHTML = "";
+
+//     cart.forEach(product => {
+
+//         total += product.price * product.quantity;
+
+//         const item = document.createElement("div");
+
+//         item.innerHTML = `
+// <img src="${product.image}" width="200">
+// <h3>${product.name}</h3>
+// <p>₦${product.price} x ${product.quantity}</p>
+// `;
+
+//         orderSummary.appendChild(item);
+
+//     });
+
+//     checkoutTotal.innerText = total;
+
+// }
+
+// displayCheckout();
+
+
+// placeOrderBtn.addEventListener("click", async () => {
+//     console.log(auth.currentUser);
+    
+//     let total = 0;
+
+//     cart.forEach(product => {
+//         total += product.price * product.quantity;
+//     });
+
+//     try {
+
+//         await addDoc(collection(db, "orders"), {
+//             products: cart,
+//             total: total,
+//             userId: auth.currentUser.uid,
+//             timestamp: serverTimestamp()
+
+//         });
+
+//         alert("Order placed successfully");
+
+//         localStorage.removeItem("cart");
+
+//         window.location.href = "index.html";
+
+//     } catch (error) {
+
+//         console.error(error);
+//         alert("Something went wrong");
+
+//     }
+
+// });
