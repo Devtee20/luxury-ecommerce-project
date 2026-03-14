@@ -17,27 +17,88 @@
         <a href="index.html" class="logo">LUXORA</a>
       </div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="#categories">Categories</a></li>
-        <li><a href="#orders">Orders</a></li>
-        <li><a href="cart.html">Cart</a></li>
-      </ul>
+      <div class="nav-icons">
+        <a href="login.html">
+          <i class="fa-solid fa-user user-icon"></i>
+        </a>
+
+        <a href="cart.html" class="cart-icon">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span id="cart-count">0</span>
+        </a>
+
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <div class="menu" id="menu">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="orders.html">Orders</a>
+          <a href="shop.html#new">New In</a>
+          <a href="login.html">Login</a>
+        </div>
+      </div>
 
     </nav>
   </header>
 
-  
+
   <!-- another section starts here  -->
 
   <section class="hero">
-    <div class="hero-text">
-      <h2>Elevate your style</h2>
-      <p>Discover luxury pieces curated for timeless elegance.</p>
-      <a href="shop.html" class="hero-btn">Shop Now</a>
+
+    <div class="hero-container">
+
+      <div class="hero-left">
+        <img src="./images/Bottega Veneta Has Opened Their First Canadian___.jpg" alt="store">
+      </div>
+      <div class="hero-text">
+
+        <h4>Where Luxury Meets Style</h4>
+
+        <h1>Elevate Your <br> Everyday Look</h1>
+
+        <p>
+          Discover premium accessories designed for
+          confidence and timeless elegance.
+        </p>
+
+        <a href="shop.html" class="hero-btn">Shop Now</a>
+
+      </div>
     </div>
+
   </section>
+
+
+  <!-- another section starts here  -->
+  <section class="new-arrivals">
+
+    <h2>New Arrivals</h2>
+
+    <div class="arrival-slider">
+
+      <div class="arrival-track">
+        <img src="./images/JW_PEI_Women_s_Elise_Top_Handle_Bag-removebg-preview.png" alt="">
+        <img src="./images/Rolex Datejust 36 Black Index Dial Stainless Steel Smooth Bezel Oyster Bracelet.jpg" alt="">
+        <img src="./images/AMOUAGE_Honour_Woman_Eau_de_Parfum___Nordstrom-removebg-preview.png" alt="">
+        <img src="./images/CASABLANCA_Striped_Short-Sleeve_Crop_Polo_Shirt-removebg-preview.png" alt="">
+        <img src="./images/Luxury_tomford_heels-removebg-preview.png" alt="">
+
+        <!-- duplicate for smooth infinite scroll -->
+
+        <img src="./images/Capucines_Mini_Bag_-_Louis_Vuitton__-removebg-preview.png" alt="">
+        <img src="./images/Jewels_Aficionado_diamond_tennis_necklace_-_Silver-removebg-preview.png" alt="">
+        <img src="./images/download__13_-removebg-preview.png" alt="">
+        <img src="./images/Nike_Breathable_Cushioned_Air_Force_1__07_Sneakers_-_Black-removebg-preview.png" alt="">
+        <img src="./images/AMIRI_Palm_Tree_Bowling_silk_shirt_-_Neutrals-removebg-preview.png" alt="">
+
+      </div>
+
+    </div>
+
+  </section>
+
+
 </body>
+<script type="module" src="./js/landingpage.js"></script>
 
 </html>
