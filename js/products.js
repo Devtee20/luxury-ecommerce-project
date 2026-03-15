@@ -38,6 +38,7 @@ async function getProducts() {
   });
 
   displayProducts(products);
+  document.getElementById("loader").style.display = "none"
 
 }
 
@@ -65,6 +66,7 @@ function displayProducts(productsArray) {
         <p class="brand">${product.brand}</p>
         <p class="category">${product.category}</p>
         <p class="description">${product.description}</p>
+        <span class = "read-more">Read more</span>
         <p class="price">₦${product.price}</p>
         <button class="add-to-cart">Add to Cart</button>
       </div>
@@ -118,34 +120,68 @@ if (searchInput) {
 }
 
 
+const searchIcon = document.querySelector(".search-icon");
 
-function addToCart(product){
+if (searchIcon && searchInput) {
 
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  searchIcon.addEventListener("click", () => {
 
-  const existingProduct = cart.find(item => item.id === product.id);
+    // show the hidden search box
+    searchInput.style.display = "block";
 
-  if(existingProduct){
+    // focus cursor inside it
+    searchInput.focus();
 
-    existingProduct.quantity += 1;
-
-  }else{
-
-    cart.push({
-      ...product,
-      quantity: 1
-    });
-
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-
-  alert("Product added to cart");
+  });
 
 }
 
 
 
+
+function updateCartCount(){
+
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let totalItems = 0;
+
+cart.forEach(item=>{
+totalItems += item.quantity || 1;
+});
+
+document.getElementById("cart-count").innerText = totalItems;
+
+}
+
+
+
+
+
+function addToCart(product){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const existingProduct = cart.find(item => item.id === product.id);
+
+if(existingProduct){
+existingProduct.quantity += 1;
+}else{
+
+cart.push({
+id: product.id,
+name: product.name,
+price: product.price,
+image: product.image,
+quantity: 1
+});
+
+}
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+updateCartCount();
+
+}
 
 
 /* ===========================
@@ -154,3 +190,47 @@ RUN FUNCTION
 
 getProducts();
 
+
+document.addEventListener("click", function(e){
+
+if(e.target.classList.contains("read-more")){
+
+const desc = e.target.previousElementSibling;
+
+desc.style.webkitLineClamp = "unset";
+desc.style.overflow = "visible";
+
+e.target.style.display = "none";
+
+}
+
+});
+
+
+const menuIcon = document.getElementById("menu-icon");
+const menu = document.getElementById("menu");
+
+menuIcon.addEventListener("click", () => {
+
+if(menu.style.display === "flex"){
+menu.style.display = "none";
+}else{
+menu.style.display = "flex";
+}
+
+});
+
+
+// const searchIcon = document.querySelector(".search-icon");
+// const searchInput = document.getElementById("search-input");
+
+// searchIcon.addEventListener("click", () => {
+
+// if(searchInput.style.display === "block"){
+// searchInput.style.display = "none";
+// }else{
+// searchInput.style.display = "block";
+// searchInput.focus();
+// }
+
+// });

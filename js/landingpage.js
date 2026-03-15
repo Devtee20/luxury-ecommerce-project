@@ -27,4 +27,27 @@ document.getElementById("cart-count").innerText = totalItems;
 
 }
 
-updateCartCount();
+// updateCartCount();
+// const waitlistBtn = document.getElementById("waitlist-btn");
+// const emailInput = document.getElementById("email-input");
+// const message = document.getElementById("waitlist-message");
+
+// waitlistBtn.addEventListener("click", function(){
+
+// const emailValue = emailInput.value.trim();
+
+// if(emailValue === ""){
+// message.style.display = "block";
+// message.style.color = "red";
+// message.textContent = "Please enter your email.";
+// return;
+// }
+
+// message.style.display = "block";
+// message.style.color = "green";
+// message.textContent = "You've successfully joined the waitlist! You will be notified when a new Luxora collection drops.";
+
+// emailInput.value = "";
+
+// });
+
