@@ -16,6 +16,7 @@ height:100vh;
 /* LOGIN CONTAINER */
 
 .login-container{
+   
 background:#ffffff;
 padding:50px 40px;
 width:380px;
@@ -24,7 +25,26 @@ box-shadow:0 10px 30px rgba(0,0,0,0.08);
 text-align:center;
 }
 
-/* TITLE */
+.login-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.back-home{
+   
+    /* position: absolute;
+    top: 15px;
+    left:15px; */
+   font-size: 18px;
+   color: #372133;
+}
+
+
+.back-home:hover{
+    color: #CF9F77;
+}
 
 .login-container h2{
 font-size:28px;

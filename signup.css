@@ -14,7 +14,28 @@ align-items:center;
 height:100vh;
 }
 
-/* CONTAINER */
+.back-home{
+   
+    /* position: absolute;
+    top: 220px;
+    left: 590px; */
+   font-size: 18px;
+   color: #372133;
+}
+
+
+.back-home:hover{
+    color: #CF9F77;
+}
+
+.login-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+
 
 .login-container{
 background:#ffffff;
@@ -25,7 +46,7 @@ box-shadow:0 10px 30px rgba(0,0,0,0.08);
 text-align:center;
 }
 
-/* LOGO */
+
 
 .login-logo{
 font-size:24px;
@@ -34,7 +55,7 @@ color:#372133;
 margin-bottom:20px;
 }
 
-/* TITLE */
+
 
 .login-container h2{
 font-size:28px;
@@ -43,7 +64,7 @@ margin-bottom:30px;
 letter-spacing:1px;
 }
 
-/* INPUT */
+
 
 .login-container input{
 width:100%;
@@ -60,7 +81,7 @@ transition:0.3s;
 border-color:#CF9F77;
 }
 
-/* BUTTON */
+
 
 #signup-btn{
 width:100%;
@@ -78,7 +99,7 @@ transition:0.3s;
 background:#CF9F77;
 }
 
-/* ERROR */
+
 
 #error-message{
 font-size:13px;
@@ -86,7 +107,7 @@ margin-bottom:10px;
 color:red;
 }
 
-/* LOGIN LINK */
+
 
 .login-link{
 margin-top:15px;

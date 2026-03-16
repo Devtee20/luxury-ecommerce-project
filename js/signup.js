@@ -10,36 +10,56 @@ const errorMessage = document.getElementById("error-message");
 
 signupBtn.addEventListener("click", async () => {
 
-  errorMessage.innerText = "";
+  
+    const emailValue = email.value.trim();
+      const passwordValue = password.value.trim();
+  
+      // 1️⃣ Email empty
+      if(emailValue === ""){
+          errorMessage.textContent = "Please enter your email address";
+          return;
+      }
+  
+      // Email format validation
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+      if(!emailPattern.test(emailValue)){
+          errorMessage.textContent = "Please enter a valid email address";
+          return;
+      }
+  
+      // 2️⃣ Password empty
+      if(passwordValue === ""){
+          errorMessage.textContent = "Please enter your password";
+          return;
+      }
+  
+      try{
+  
+          await createUserWithEmailAndPassword(auth, emailValue, passwordValue);
+  
+          // Login success
+          window.location.href = "index.html";
+  
+      }catch(error){
+     
+        if(error.code === "auth/email-already-in-use"){
+            errorMessage.textContent = "Email already in use. Please use another email.";
+        }
 
-  try {
+        else if(error.code === "auth/invalid-mail"){
+          error.errorMessage.textContent = "please enter a valid address"
+        }
 
-    await createUserWithEmailAndPassword(
-      auth,
-      email.value,
-      password.value
-    );
+         else if(error.code === "auth/weak-password"){
+          error.errorMessage.textContent = "password should be at least 6 characters"
+        }
 
-    alert("Account created successfully");
-
-    window.location.href = "login.html";
-
-  } catch (error) {
-
-    if (error.code === "auth/email-already-in-use") {
-      errorMessage.innerText = "Email already used. Please login.";
-
-    } else if (error.code === "auth/invalid-email") {
-      errorMessage.innerText = "Invalid email address.";
-
-    } else if (error.code === "auth/weak-password") {
-      errorMessage.innerText = "Password must be at least 6 characters.";
-
-    } else {
-      errorMessage.innerText = "Signup failed. Try again.";
-    }
-
-  }
+        else{
+            errorMessage.textContent = "sign up failed! please try again later";
+        }
+  
+      }
 
 });
 

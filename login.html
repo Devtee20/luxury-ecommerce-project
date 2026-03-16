@@ -2,23 +2,37 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
-    <link rel="stylesheet" href="./login.css    ">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOGIN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="./login.css">
 </head>
 
 <body>
 
-    
-    
+
+
   <div class="login-container">
-      <h2>Login</h2>
-    <input id="email" placeholder="Email" required>
-    <input id="password" type="password" placeholder="Password" required>
+
+
+    <div class="login-header">
+      <a href="index.html" class="back-home">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+    </div>
+
+    <h2>Login</h2>
+    <input id="email" placeholder="Email" autocomplete="email">
+    <input id="password" type="password" placeholder="Password" autocomplete="current-password" required>
     <p id="error-message" style="color: red;"></p>
     <button id="login-btn">Login</button>
   </div>
+
+
+  
 
 </body>
 <script type="module" src="/js/login.js"></script>

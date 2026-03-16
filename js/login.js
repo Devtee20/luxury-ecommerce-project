@@ -11,68 +11,74 @@ const errorMessage = document.getElementById("error-message");
 
 loginBtn.addEventListener("click", async () => {
 
-  errorMessage.innerText = "";
+  const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
 
-  try {
+    // 1️⃣ Email empty
+    if(emailValue === ""){
+        errorMessage.textContent = "Please enter your email address";
+        return;
+    }
 
-    await signInWithEmailAndPassword(
-      auth,
-      email.value,
-      password.value
-    );
+    // Email format validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    window.location.href = "index.html";
+    if(!emailPattern.test(emailValue)){
+        errorMessage.textContent = "Please enter a valid email address";
+        return;
+    }
 
-  } catch (error) {
-    if (
-    error.code === "auth/invalid-credential" ||
-    error.code === "auth/wrong-password"
-  ) {
+    // 2️⃣ Password empty
+    if(passwordValue === ""){
+        errorMessage.textContent = "Please enter your password";
+        return;
+    }
 
-    errorMessage.innerText = "Incorrect email or password";
+    try{
 
-  } else if (error.code === "auth/invalid-email") {
+        await signInWithEmailAndPassword(auth, emailValue, passwordValue);
 
-    errorMessage.innerText = "Invalid email address";
+        // Login success
+        window.location.href = "index.html";
 
-  } else {
+    }catch(error){
 
-    errorMessage.innerText = error.message;
+        // 3️⃣ Wrong credentials
+        errorMessage.textContent = "Credentials incorrect";
 
-  }
+    }
 
+  // errorMessage.innerText = "";
 
-  //   if (error.code === "auth/invalid-credential") {
-  //   errorMessage.innerText = "Email not registered. Please sign up.";
+  // try {
 
-  // } else if (error.code === "auth/wrong-password") {
-  //   errorMessage.innerText = "Incorrect password";
+  //   await signInWithEmailAndPassword(
+  //     auth,
+  //     email.value,
+  //     password.value
+  //   );
 
-  // } else if (error.code === "auth/invalid-email") {
-  //   errorMessage.innerText = "Invalid email address";
+  //   window.location.href = "index.html";
 
-  // } else {
-  //   errorMessage.innerText = error.message;
-  // }
-
-  // if (
-  //   error.code === "auth/wrong-password" ||
-  //   error.code === "auth/invalid-credential"
+  // } catch (error) {
+  //   if (
+  //   error.code === "auth/invalid-credential" ||
+  //   error.code === "auth/wrong-password"
   // ) {
-  //   errorMessage.innerText = "Incorrect password";
 
-  // } else if (error.code === "auth/user-not-found") {
-  //   errorMessage.innerText = "User not found";
+  //   errorMessage.innerText = "Incorrect email or password";
 
   // } else if (error.code === "auth/invalid-email") {
+
   //   errorMessage.innerText = "Invalid email address";
 
   // } else {
-  //   errorMessage.innerText = error.message;
-  // }
-    
 
-  }
+  //   errorMessage.innerText = error.message;
+
+  // }
+
+  // }
 
 });
 
