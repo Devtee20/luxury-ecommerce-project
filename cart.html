@@ -5,20 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CART</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./cart.css">
 </head>
 
 <body>
 
-    <h1>Cart</h1>
-    <div id="cart-container"></div>
-    <h2>Total: ₦<span id="cart-total">0</span></h2>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" class="logo">LUXORA</a>
+            </div>
+
+            <div class="nav-icons">
+                <a href="signup.html">
+                    <i class="fa-solid fa-user user-icon"></i>
+                </a>
+
+                <a href="cart.html" class="cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-count">0</span>
+                </a>
+
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+                <div class="menu" id="menu">
+                    <a href="index.html">Home</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="orders.html">Orders</a>
+                    <a href="shop.html#new">New In</a>
+                    <a href="login.html">Login</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
 
 
-    <a href="checkout.html">
-    <button>Proceed to Checkout</button>
-    </a>
+    <!-- anotherr section starts here  -->
 
+    <div class="cart-page">
+
+
+        <!-- <h1>Cart</h1>        -->
+            <div id="cart-container"></div>
+            <h2>Total: ₦<span id="cart-total">0</span></h2>
+            <a href="checkout.html">
+                <button>Proceed to Checkout</button>
+            </a>
+    </div>
 </body>
+
+
+<!-- 
+<img src="${item.image}" width="80">
+
+<h3>${item.name}</h3>
+
+<p>₦${item.price}</p>
+
+<p>Quantity: ${item.quantity}</p>
+
+<button class="remove-btn" data-index="${index}">Remove</button> -->
+
+
+
 <script src="./js/cart.js"></script>
 
 </html>
