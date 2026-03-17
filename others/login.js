@@ -39,46 +39,33 @@ loginBtn.addEventListener("click", async () => {
         await signInWithEmailAndPassword(auth, emailValue, passwordValue);
 
         // Login success
-        window.location.href = "../index.html";
+       window.location.href = "../index.html";
 
     }catch(error){
 
+
+          if(error.code === "auth/email-already-in-use"){
+            errorMessage.textContent = "Email already in use. Please use another email.";
+        }
+
+        else if(error.code === "auth/invalid-mail"){
+          error.errorMessage.textContent = "please enter a valid address"
+        }
+
+         else if(error.code === "auth/weak-password"){
+          error.errorMessage.textContent = "password should be at least 6 characters"
+        }
+
+        else{
+            errorMessage.textContent = "sign up failed! please try again later";
+        }
+
         // 3️⃣ Wrong credentials
-        errorMessage.textContent = "Credentials incorrect";
+        // errorMessage.textContent = "Credentials incorrect";
 
     }
 
-  // errorMessage.innerText = "";
-
-  // try {
-
-  //   await signInWithEmailAndPassword(
-  //     auth,
-  //     email.value,
-  //     password.value
-  //   );
-
-  //   window.location.href = "index.html";
-
-  // } catch (error) {
-  //   if (
-  //   error.code === "auth/invalid-credential" ||
-  //   error.code === "auth/wrong-password"
-  // ) {
-
-  //   errorMessage.innerText = "Incorrect email or password";
-
-  // } else if (error.code === "auth/invalid-email") {
-
-  //   errorMessage.innerText = "Invalid email address";
-
-  // } else {
-
-  //   errorMessage.innerText = error.message;
-
-  // }
-
-  // }
+  
 
 });
 
