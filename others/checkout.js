@@ -86,7 +86,7 @@ placeOrderBtn.addEventListener("click", () => {
 
       localStorage.removeItem("cart");
 
-      window.location.href = "index.html";
+      window.location.href = "../index.html";
 
     } catch (error) {
 
