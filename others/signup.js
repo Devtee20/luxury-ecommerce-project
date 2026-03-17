@@ -39,7 +39,7 @@ signupBtn.addEventListener("click", async () => {
           await createUserWithEmailAndPassword(auth, emailValue, passwordValue);
   
           // Login success
-          window.location.href = "index.html";
+          window.location.href = "../index.html";
   
       }catch(error){
      
