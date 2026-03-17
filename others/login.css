@@ -96,6 +96,22 @@ margin-bottom:10px;
 }
 
 
+.login-link{
+margin-top:15px;
+font-size:13px;
+color:#555;
+}
+
+.login-link a{
+color:#CF9F77;
+text-decoration:none;
+font-weight:500;
+}
+
+.login-link a:hover{
+text-decoration:underline;
+}
+
 /* login media query  */
 
 @media (max-width:445px){
