@@ -76,7 +76,18 @@ function displayProducts(productsArray) {
 
     addToCartBtn.addEventListener("click", (e) => {
 
+      Toastify({
+  text: "Product added to cart 🛒",
+  duration: 2000,
+  gravity: "top",
+  position: "right",
+  backgroundColor: "#372133",
+}).showToast();
+      // alert("Product added to cart successfully")
+      
       e.stopPropagation(); // prevents product click
+      
+      
 
       addToCart(product);
 
@@ -165,6 +176,7 @@ const existingProduct = cart.find(item => item.id === product.id);
 
 if(existingProduct){
 existingProduct.quantity += 1;
+console.log('Product added to cart successfully');
 }else{
 
 cart.push({
