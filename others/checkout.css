@@ -1,0 +1,348 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+text-decoration: none;
+list-style-type: none;
+font-family: "Playfair Display", serif;
+}
+
+
+
+header{
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: white;
+}
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:#ffffff;
+  border-bottom:1px solid #eee;
+  
+}
+
+.logo a{
+  font-size:22px;
+  letter-spacing:3px;
+  text-decoration:none;
+  color:#372133; 
+  font-weight:600;
+}
+
+
+.nav-icons{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+
+.nav-icons i{
+  color:#372133; 
+  font-size:20px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.nav-icons i:hover{
+  color:#cf9f77; 
+}
+
+
+.cart-icon{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+
+#cart-count{
+  position:absolute;
+  top:-6px;
+  right:-8px;
+  background:#fdd599; 
+  color:#372133;     
+  font-size:10px;
+  padding:2px 6px;
+  border-radius:50%;
+  font-weight:600;
+}
+
+
+#menu-icon{
+  font-size:20px;
+  cursor:pointer;
+}
+
+.menu{
+  position:absolute;
+  top:70px;
+  right:60px;
+  background:#ffffff;
+  padding:20px;
+  display:none;
+  flex-direction:column;
+  gap:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  border-radius:6px;
+}
+
+
+.menu a{
+  text-decoration:none;
+  color:#372133; 
+  font-size:14px;
+}
+
+.menu a:hover{
+  color:#CF9F77;
+}
+
+/* header media query */
+
+@media (max-width:1024px){
+
+.navbar{
+padding:18px 40px;
+}
+
+.logo a{
+font-size:20px;
+}
+
+.nav-icons{
+gap:18px;
+}
+
+}
+
+
+@media (max-width:768px){
+
+.navbar{
+padding:16px 25px;
+}
+
+.logo a{
+font-size:18px;
+letter-spacing:2px;
+}
+
+
+.user-icon{
+display:none;
+}
+
+
+.nav-icons{
+gap:16px;
+}
+
+.nav-icons i{
+font-size:18px;
+}
+
+}
+
+@media (max-width:480px){
+
+.navbar{
+padding:14px 18px;
+}
+
+.logo a{
+font-size:16px;
+letter-spacing:1px;
+}
+
+
+#cart-count{
+font-size:9px;
+padding:2px 5px;
+}
+
+}
+
+
+
+.checkout-page{
+max-width:600px;
+margin:40px auto;
+padding:0 20px;
+display:flex;
+flex-direction:column;
+gap:30px;
+}
+
+/* Cart section */
+.checkout-cart{
+background:#fff;
+padding:20px;
+border-radius:8px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Form */
+.checkout-form{
+background:#fff;
+padding:20px;
+border-radius:8px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.checkout-form h2{
+    /* border: 2px solid red; */
+    margin-bottom: 15px;
+}
+
+.checkout-form input,
+.checkout-form textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ddd;
+outline:none;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus{
+border-color:#CF9F77;
+}
+
+/* Button */
+#place-order{
+padding:14px;
+background:#372133;
+color:#fff;
+border:none;
+cursor:pointer;
+width:100%;
+}
+
+#place-order:hover{
+background:#CF9F77;
+}
+
+.checkout-item{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+
+.checkout-item img{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* footer starts here  */
+
+.site-footer{
+background:#1a0f14;
+color:#eee;
+/* padding: 20px 60px; */
+padding:80px 60px 30px;
+}
+
+
+.footer-container{
+display:flex;
+justify-content:space-between;
+gap:80px;
+max-width:1400px;
+margin:auto;
+flex-wrap:wrap;
+}
+
+
+.footer-brand h3{
+letter-spacing: 3px;
+font-size:24px;
+margin-bottom:15px;
+}
+
+
+.footer-brand p{
+font-size:14px;
+line-height:1.6;
+color:#bbb;
+max-width:320px;
+}
+
+
+.footer-links h4,
+.footer-contact h4{
+margin-bottom:15px;
+}
+
+.footer-links a{
+display:block;
+text-decoration:none;
+color:#bbb;
+margin-bottom:8px;
+font-size:14px;
+}
+
+.footer-links a:hover{
+color:white;
+}
+
+
+
+.footer-contact p{
+font-size:14px;
+color:#bbb;
+margin-bottom:8px;
+}
+
+
+.footer-bottom{
+text-align:center;
+margin-top:50px;
+border-top:1px solid #333;
+padding-top:20px;
+font-size:13px;
+color:#888;
+} 
+
+
+.footer-disclaimer{
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+
+.footer-social{
+margin-top:20px;
+display:flex;
+gap:18px;
+}
+
+.footer-social a{
+color:#bbb;
+font-size:18px;
+transition:0.3s;
+}
+
+.footer-social a:hover{
+color:#CF9F77;
+}
+
+
+
+
