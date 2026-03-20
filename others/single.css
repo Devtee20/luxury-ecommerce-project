@@ -9,7 +9,6 @@
 
 
 header {
-
   position: sticky;
   top: 0;
   left: 0;
@@ -210,7 +209,10 @@ IMAGE
 .product-image img {
   width: 100%;
   height: auto;
+  max-height: 400px;
   object-fit: contain;
+  display: block;
+  margin: auto;
 }
 
 /* =========================
@@ -292,48 +294,6 @@ animation:spin 0.8s linear infinite;
 0%{transform:rotate(0deg);}
 100%{transform:rotate(360deg);}
 }
-/* #loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right, #372133, #1a1a1a);
-  color: white;
-  z-index: 9999;
-
-}
-
-.brand{
-  font-size: 28px;
-  letter-spacing: 3px;
-  margin-bottom: 20px;
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top: 3px solid white;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-} */
 
 
 
@@ -355,6 +315,115 @@ BUTTON
 #add-to-cart:hover {
   background: #cf9f77;
   color: #372133;
+}
+
+
+/* media query */
+
+/* =========================
+TABLETS (927px ↓)
+========================= */
+@media (max-width: 927px) {
+
+  .single-product {
+    padding: 60px 40px;
+  }
+
+  .product-container {
+    gap: 40px;
+  }
+
+  .product-info h2 {
+    font-size: 24px;
+  }
+
+}
+
+
+/* =========================
+SMALL TABLETS (768px ↓)
+========================= */
+@media (max-width: 768px) {
+
+  .single-product {
+    padding: 50px 30px;
+  }
+
+  .product-container {
+    flex-direction: column; /* 🔥 STACK */
+    text-align: center;
+  }
+
+  .product-image {
+    width: 100%;
+    padding: 30px;
+  }
+
+  .product-info {
+    width: 100%;
+  }
+
+  .product-info h2 {
+    font-size: 22px;
+  }
+
+  #product-price {
+    font-size: 20px;
+  }
+
+}
+
+
+/* =========================
+MOBILE (480px ↓)
+========================= */
+@media (max-width: 480px) {
+
+  .single-product {
+    padding: 40px 20px;
+  }
+
+  .product-image {
+    padding: 20px;
+  }
+
+  .product-info h2 {
+    font-size: 20px;
+  }
+
+  #product-description {
+    font-size: 13px;
+  }
+
+  #add-to-cart {
+    width: 100%; /* 🔥 full width button */
+    padding: 14px;
+  }
+
+}
+
+
+/* =========================
+SMALL PHONES (320px ↓)
+========================= */
+@media (max-width: 320px) {
+
+  .single-product {
+    padding: 30px 15px;
+  }
+
+  .product-info h2 {
+    font-size: 18px;
+  }
+
+  #product-price {
+    font-size: 18px;
+  }
+
+  #product-description {
+    font-size: 12px;
+  }
+
 }
 
 /* footer starts here */
