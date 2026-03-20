@@ -15,15 +15,21 @@ GET PRODUCT ID
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
 
+
 /* ===========================
 FETCH PRODUCT
 =========================== */
+
+
 
 async function getSingleProduct() {
 
   try {
 
-    loader.hidden = false;
+    // ✅ SHOW LOADER
+    loader.style.display = "flex";
+    // productDetails.hidden = true;
+    productDetails.style.display = "none";
 
     const docRef = doc(db, "products", productId);
     const docSnap = await getDoc(docRef);
@@ -39,20 +45,24 @@ async function getSingleProduct() {
       document.getElementById("product-description").textContent = product.description;
       document.getElementById("product-price").textContent = "₦" + product.price;
 
-      productDetails.hidden = false;
+      // ✅ SHOW PRODUCT ONLY AFTER DATA LOADS
+      // productDetails.hidden = false;
 
+      setTimeout(() => {
+        loader.style.display = "none";
+        productDetails.style.display = "flex";
+      }, 300); 
+
+    } else {
+      loader.innerText = "Product not found ❌";
     }
 
   } catch (error) {
-
     console.log(error);
-
-  } finally {
-
-    loader.hidden = true;
-
+    loader.innerText = "Error loading product ❌";
   }
-
+      
 }
+
 
 getSingleProduct();

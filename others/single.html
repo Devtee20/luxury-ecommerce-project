@@ -5,64 +5,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Single</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./single.css">
 </head>
 
 <body>
-    <h1>Product Details</h1>
 
-    <p id="loader">Loading product...</p>
 
-    <div id="product-details" hidden>
 
-        <div class="product-image">
-            <img id="product-image" src="" alt="Product Image">
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" class="logo">LUXORA</a>
+            </div>
+
+            <div class="nav-icons">
+                <a href="./others/signup.html">
+                    <i class="fa-solid fa-user user-icon"></i>
+                </a>
+
+                <a href="./others/cart.html" class="cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <!-- <span id="cart-count">0</span> -->
+                </a>
+
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+                <div class="menu" id="menu">
+                    <a href="index.html">Home</a>
+                    <a href="./others/shop.html">Shop</a>
+                    <a href="./others/orders.html">Orders</a>
+                    <a href="./others/shop.html#new">New In</a>
+                    <a href="./others/login.html">Login</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+
+
+    <!-- another section starts here  -->
+    <section class="single-product">
+        <div id="loader">
+            <h1 class="loader-logo">LUXORA</h1>
+            <div class="spinner"></div>
         </div>
 
-        <div class="product-info">
+        <div id="product-details" class="product-container">
 
-            <h2 id="product-name"></h2>
+            <div class="product-image">
+                <img id="product-image" src="" alt="Product Image">
+            </div>
 
-            <p><strong>Brand:</strong> <span id="product-brand"></span></p>
+            <div class="product-info">
 
-            <p><strong>Category:</strong> <span id="product-category"></span></p>
+                <h2 id="product-name"></h2>
 
-            <p id="product-description"></p>
+                <p class="meta"><strong>Brand:</strong> <span id="product-brand"></span></p>
 
-            <h3 id="product-price"></h3>
+                <p class="meta"><strong>Category:</strong> <span id="product-category"></span></p>
 
-            <button id="add-to-cart">Add to Cart</button>
+                <p id="product-description"></p>
+
+                <h3 id="product-price"></h3>
+
+                <button id="add-to-cart">Add to Cart</button>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- footer section starts here  -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+                <h3>LUXORA</h3>
+                <p>
+                    Luxora is a premium fashion brand delivering elegant pieces
+                    designed for confidence and timeless style.
+                </p>
+
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+
+
+
+
+            <div class="footer-links">
+                <h4>Shop With Us</h4>
+                <a href="#">Bags</a>
+                <a href="#">Shoes</a>
+                <a href="#">Accessories</a>
+                <a href="#">Fragrance</a>
+            </div>
+
+
+
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: support@luxora.com</p>
+                <p>Phone: +234 812 446 0831</p>
+                <p>Nigeria • Nationwide Delivery</p>
+            </div>
 
         </div>
 
-    </div>
-    <!-- <h1>Product Details</h1>
-
-    <div id="product-details">
-
-        <div class="product-image">
-            <img id="product-image" src="" alt="Product Image">
+        <div class="footer-bottom">
+            <p>© 2026 Luxora. All rights reserved.</p>
         </div>
 
-        <div class="product-info">
+        <p class="footer-disclaimer">
+            This website is a personal project created for educational purposes.
+            It is not affiliated with or intended to represent any real brand
+        </p>
 
-            <h2 id="product-name"></h2>
+    </footer>
 
-            <p><strong>Brand:</strong> <span id="product-brand"></span></p>
 
-            <p><strong>Category:</strong> <span id="product-category"></span></p>
-
-            <p id="product-description"></p>
-
-            <h3 id="product-price"></h3>
-
-            <button id="add-to-cart">Add to Cart</button>
-
-        </div>
-
-    </div> -->
 
 </body>
 <script type="module" src="./single.js"></script>
-<!-- <script type="./js/single.js"></script> -->
 
 </html>

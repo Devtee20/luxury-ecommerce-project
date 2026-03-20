@@ -99,7 +99,7 @@ function displayProducts(productsArray) {
     =========================== */
 
     productDiv.addEventListener("click", () => {
-      // console.log(product.id);
+
       window.location.href = `single.html?id=${product.id}`;
     });
 
@@ -233,16 +233,4 @@ menuIcon.addEventListener("click", () => {
 });
 
 
-// const searchIcon = document.querySelector(".search-icon");
-// const searchInput = document.getElementById("search-input");
 
-// searchIcon.addEventListener("click", () => {
-
-// if(searchInput.style.display === "block"){
-// searchInput.style.display = "none";
-// }else{
-// searchInput.style.display = "block";
-// searchInput.focus();
-// }
-
-// });

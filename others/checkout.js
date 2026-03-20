@@ -142,18 +142,37 @@ placeOrderBtn.addEventListener("click", () => {
       });
 
       Toastify({
-        text: "Order placed successfully 🎉",
+        text: "Order Placed Successfully",
         duration: 3000,
         gravity: "top",
-        position: "right",
+        position: "center",
         backgroundColor: "#FDD599",
+
+      style: {
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    background: "#FDD599",
+    color: "#372133",
+    padding: "16px 24px",
+    borderRadius: "10px",
+    fontSize: "14px",
+    fontWeight: "500"
+  }
+        
       }).showToast();
 
       // alert("Order placed successfully");
 
-      localStorage.removeItem("cart");
+      
 
+      localStorage.removeItem("cart");
+      setTimeout(() => {
       window.location.href = "../index.html";
+      }, 3000);
+
+      // window.location.href = "../index.html";
 
     } catch (error) {
 
